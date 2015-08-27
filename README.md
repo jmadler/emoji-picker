@@ -1,5 +1,7 @@
 # emoji-picker
 
+![Example Screenshot](http://one-signal.github.io/emoji-picker/screenshot.png)
+
 **Demo:** http://one-signal.github.io/emoji-picker/
 
 Note: This is a slightly modified version of [angular-emoji-popup](https://github.com/Coraza/angular-emoji-popup), which was written based on [jquery-emojiarea](https://github.com/diy/jquery-emojiarea) (converts input fields to rich emoji input areas) and uses [nanoScrollerJs](https://github.com/jamesflorentino/nanoScrollerJS) (for the popup's custom-skinned scrollbar). This version removes AngularJS as a dependency.
