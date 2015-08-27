@@ -26,7 +26,7 @@
         <div class="inner cover">
           <h1 class="cover-heading">emoji-picker</h1>
 
-          <p class="lead">jQuery &bull; <a href="http://github.hubspot.com/tether/">Tether.js</a> &bull; <a href="https://jamesflorentino.github.io/nanoScrollerJS/">Nanoscroller</a></p>
+          <p class="lead">jQuery &bull; <a href="http://github.hubspot.com/tether/">Tether.js</a> &bull; <a href="https://jamesflorentino.github.io/nanoScrollerJS/">Nanoscroller.js</a></p>
 
           <p class="lead emoji-picker-container">
             <input type="email" class="form-control" placeholder="Input field" data-emojiable="true">
@@ -68,11 +68,15 @@
 
   <script>
     $(function() {
+      // Initializes and creates emoji set from sprite sheet
       window.emojiPicker = new EmojiPicker({
-        spriteSheetPath: 'lib/img/emojisprite_!.png',
-        blankGifPath: 'lib/img/blank.gif',
-        emojiable_selector: '[data-emojiable=true]'
+        emojiable_selector: '[data-emojiable=true]',
+        assetsPath: 'lib/img/',
+        popupButtonClasses: 'fa fa-smile-o'
       });
+      // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+      // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+      // It can be called as many times as necessary; previously converted input fields will not be converted again
       window.emojiPicker.discover();
     });
   </script>

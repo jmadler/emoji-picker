@@ -5,10 +5,8 @@ class @EmojiPicker
   #    textareaId: The ID to select the textarea that will be converted to a WYSIWYG.
   #    popupElementId: The ID of the element that, when clicked, will display the popup menu.
   constructor: (options = {}) ->
-    $.emojiarea.spritesheetPath = options.spriteSheetPath ? 'img/emojisprite_!.png';
-    $.emojiarea.spritesheetDimens = Config.EmojiCategorySpritesheetDimens;
     $.emojiarea.iconSize = options.iconSize ? 25;
-    $.emojiarea.blankGifPath = options.blankGifPath;
+    $.emojiarea.assetsPath = options.assetsPath ? '';
     @generateEmojiIconSets(options)
     options.emojiable_selector = '[data-emojiable=true]' if !options.emojiable_selector
     this.options = options;
@@ -18,11 +16,10 @@ class @EmojiPicker
     if (isiOS)
       return;
     # Convert every emojiable field to an emoji area
-    $(this.options.emojiable_selector).emojiarea(
-      {
+    $(this.options.emojiable_selector).emojiarea($.extend({
         emojiPopup: this,
         norealTime: true
-      })
+      }, this.options));
 
 
   generateEmojiIconSets:(options) ->

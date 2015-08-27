@@ -27,6 +27,9 @@ html,
 body {
   height: 100%;
   background-color: #333; }
+  html .lead:first-of-type,
+  body .lead:first-of-type {
+    padding-bottom: 1em; }
 
 body {
   color: #fff;
