@@ -54,19 +54,19 @@
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
   <!-- Begin emoji-picker JavaScript -->
-  <script src="../lib/js/nanoscroller.min.js"></script>
-  <script src="../lib/js/tether.min.js"></script>
-  <script src="../lib/js/config.js"></script>
-  <script src="../lib/js/util.js"></script>
-  <script src="../lib/js/jquery.emojiarea.js"></script>
-  <script src="../lib/js/emoji-picker.js"></script>
+  <script src="lib/js/nanoscroller.min.js"></script>
+  <script src="lib/js/tether.min.js"></script>
+  <script src="lib/js/config.js"></script>
+  <script src="lib/js/util.js"></script>
+  <script src="lib/js/jquery.emojiarea.js"></script>
+  <script src="lib/js/emoji-picker.js"></script>
   <!-- End emoji-picker JavaScript -->
 
   <script>
     $(function() {
       window.emojiPicker = new EmojiPicker({
-        spriteSheetPath: '../lib/img/emojisprite_!.png',
-        blankGifPath: '../lib/img/blank.gif',
+        spriteSheetPath: 'lib/img/emojisprite_!.png',
+        blankGifPath: 'lib/img/blank.gif',
         emojiable_selector: '[data-emojiable=true]'
       });
       window.emojiPicker.discover();
