@@ -10,14 +10,15 @@ a {
     color: white; }
 
 /* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
+.btn-secondary {
+  background-color: #fff;
   text-shadow: none;
   /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: .05rem solid #fff; }
+  border: .05rem solid #ffffff; }
+  .btn-secondary.btn-secondary:hover, .btn-secondary.btn-secondary:focus {
+    background-color: #e6e6e6; }
+  .btn-secondary.btn-secondary:active {
+    background-color: #cccccc; }
 
 /*
  * Base structure

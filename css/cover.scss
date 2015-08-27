@@ -17,13 +17,19 @@ a {
 }
 
 /* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
+.btn-secondary {
   background-color: #fff;
-  border: .05rem solid #fff;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  border: .05rem solid #ffffff;
+
+  &.btn-secondary:hover,
+  &.btn-secondary:focus {
+    background-color: darken(#fff, 10%);
+  }
+
+  &.btn-secondary:active {
+    background-color: darken(#fff, 20%);
+  }
 }
 
 
