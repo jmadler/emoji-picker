@@ -6,6 +6,47 @@
 
 **Demo:** http://one-signal.github.io/emoji-picker/
 
+#Installation & Usage:
+
+*On Robustness*: This library isn't super robust, so if you find any issues, please report it so it can be fixed (or feel free to fix it yourself). Code quality improvements are also welcome, always looking to make it better!
+
+*On CDN & Multiple Files*: Currently, the number of JavaScript files you have to include is not ideal (6 files). The files will eventually be concatenated and minified, but it might be a bit until this happens. When that's complete, it'll be added to CDNJs as well.
+
+1. In your `<head>` section, add the following *stylesheet* links. Adjust the `lib/css` path to match yours.
+
+  ```
+    <link href="lib/css/nanoscroller.css" rel="stylesheet">
+    <link href="lib/css/emoji.css" rel="stylesheet">
+  ```
+
+2. Before the end of your `<body>` section, add the following *JavaScrtip* links. This library depends on jQuery, so jQuery must also be included, before these scripts are run. Once again, adjust the `lib/css` path to match yours.
+
+  ```
+    <!-- ** Don't forget to Add jQuery here ** -->
+    <script src="lib/js/nanoscroller.min.js"></script>
+    <script src="lib/js/tether.min.js"></script>
+    <script src="lib/js/config.js"></script>
+    <script src="lib/js/util.js"></script>
+    <script src="lib/js/jquery.emojiarea.js"></script>
+    <script src="lib/js/emoji-picker.js"></script>
+  ```
+
+3. On any input field, add the data attribute `data-emojiable="true"`. 
+
+4. That's all you need for the default options. Play around with the demo to see what the default options give you.
+
+#Configuring Options
+
+**I want the Emoji selector to input Unicode characters instead of images**
+Add `data-emoji-input="unicode"` to your input field. Only the `unicode` value is checked for; entering anything else has no effect.
+
+**I want to limit my input field to a certain number of characters (maxlength)**
+The `maxlength` property is mostly supported. Character input and emoji input each count as one character, so it'll stop you from entering more than the max length. Unfortunately, you can paste more than the maxlength number of characters, so that needs to be fixed.
+
+**I want classes from my original input field to be copied over to the rich emoji input area**
+They are!
+
+
 #You get:
   - Input fields converted to contenteditable rich text areas with emoji support
   - A happy face icon on the top right of each rich text area, which brings up the menu on click
