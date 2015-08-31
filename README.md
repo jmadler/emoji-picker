@@ -38,12 +38,15 @@
 #Configuring Options
 
 **I want the Emoji selector to input Unicode characters instead of images**
+
 Add `data-emoji-input="unicode"` to your input field. Only the `unicode` value is checked for; entering anything else has no effect.
 
 **I want to limit my input field to a certain number of characters (maxlength)**
+
 The `maxlength` property is mostly supported. Character input and emoji input each count as one character, so it'll stop you from entering more than the max length. Unfortunately, you can paste more than the maxlength number of characters, so that needs to be fixed.
 
 **I want classes from my original input field to be copied over to the rich emoji input area**
+
 They are!
 
 
