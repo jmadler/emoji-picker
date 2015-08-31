@@ -28,3 +28,6 @@ This is a slightly modified version of [angular-emoji-popup](https://github.com/
   - CSS classes from the original input field are copied over to the new contenteditable div
 
 We built this to power emoji selection for [OneSignal](https://onesignal.com), our multi-platform push notification service.
+
+#Custom options
+To get Unicode emoji input instead of images, simply add `data-emoji-input="unicode"` to your input field's property. You can see that on the second textarea on the demo page.
