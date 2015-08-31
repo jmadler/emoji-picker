@@ -18,7 +18,7 @@ class @EmojiPicker
     # Convert every emojiable field to an emoji area
     $(this.options.emojiable_selector).emojiarea($.extend({
         emojiPopup: this,
-        norealTime: true
+        norealTime: true,
       }, this.options));
 
 
