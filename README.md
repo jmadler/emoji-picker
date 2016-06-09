@@ -2,7 +2,7 @@
 
 :heart_eyes: :stuck_out_tongue_winking_eye: :joy: :stuck_out_tongue: Instantly add Emoji support to input fields on your website! :boom: :sparkles: :thumbsup: :metal:
 
-![Example Screenshot](http://one-signal.github.io/emoji-picker/screenshot.png)
+![Example Screenshot](http://onesignal.github.io/emoji-picker/screenshot.png)
 
 **Demo:** http://onesignal.github.io/emoji-picker/
 
