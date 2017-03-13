@@ -15,6 +15,7 @@
 1. In your `<head>` section, add the following *stylesheet* links. Adjust the `lib/css` path to match yours.
 
   ```
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="lib/css/emoji.css" rel="stylesheet">
   ```
 
