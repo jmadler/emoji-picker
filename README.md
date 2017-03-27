@@ -4,7 +4,7 @@
 
 ![Example Screenshot](http://onesignal.github.io/emoji-picker/screenshot.png)
 
-**Demo:** http://onesignal.github.io/emoji-picker/
+**Demo:** http://onesignal.github.io/emoji-picker/demo
 
 # Installation & Usage:
 

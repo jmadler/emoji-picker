@@ -22,7 +22,7 @@
     "node": "0.10.x"
   },
   "devDependencies": {
-    
+
   },
   "directories": {
     "lib": "./lib"
@@ -39,8 +39,6 @@
   ],
   "bugs": "https://github.com/one-signal/emoji-picker/issues",
   "files": [
-    "js",
-    "css",
     "lib",
     "LICENSE",
     "README.md",
