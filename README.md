@@ -24,7 +24,6 @@
   ```
     <!-- ** Don't forget to Add jQuery here ** -->
     <script src="lib/js/nanoscroller.min.js"></script>
-    <script src="lib/js/tether.min.js"></script>
     <script src="lib/js/config.js"></script>
     <script src="lib/js/util.js"></script>
     <script src="lib/js/jquery.emojiarea.js"></script>
