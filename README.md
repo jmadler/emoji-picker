@@ -15,7 +15,6 @@
 1. In your `<head>` section, add the following *stylesheet* links. Adjust the `lib/css` path to match yours.
 
   ```
-    <link href="lib/css/nanoscroller.css" rel="stylesheet">
     <link href="lib/css/emoji.css" rel="stylesheet">
   ```
 
@@ -23,7 +22,6 @@
 
   ```
     <!-- ** Don't forget to Add jQuery here ** -->
-    <script src="lib/js/nanoscroller.min.js"></script>
     <script src="lib/js/config.js"></script>
     <script src="lib/js/util.js"></script>
     <script src="lib/js/jquery.emojiarea.js"></script>
