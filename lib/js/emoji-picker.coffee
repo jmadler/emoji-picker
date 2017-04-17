@@ -62,11 +62,24 @@ class @EmojiPicker
       else
         ''
 
-  unicodeToImage:(input) ->
+  appendUnicodeAsImageToElement:(element, input) ->
     if !input
       return ''
     if !Config.rx_codes
       Config.init_unified()
+
+    split_on_unicode = input.split(Config.rx_codes)
+    for text in split_on_unicode
+      val = ''
+      if Config.rx_codes.test(text)
+        val = Config.reversemap[text]
+        if val
+          val = ':' + val + ':'
+          val = $.emojiarea.createIcon($.emojiarea.icons[val])
+      else
+        val = document.createTextNode(text)
+      element.append(val)
+
     input.replace Config.rx_codes, (m) ->
       val = Config.reversemap[m]
       if val
