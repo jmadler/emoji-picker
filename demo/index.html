@@ -9,43 +9,34 @@
     <link rel="shortcut icon" href="favicon.png">
     <title>emoji-picker Demo</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
     <!-- Begin emoji-picker Stylesheets -->
     <link href="../lib/css/emoji.css" rel="stylesheet">
     <!-- End emoji-picker Stylesheets -->
-
-    <style>
-      .emoji-picker-container {
-        margin-bottom: 10px;
-      }
-    </style>
   </head>
 
-  <body class="text-center">
+  <body>
     <h1>emoji-picker</h1>
+    <input type="text">
+    <p>Input field</p>
+    <div class="emoji-picker-container">
+      <input type="text" data-emojiable="true">
+    </div>
+
+    <p>Textarea with emoji image input</p>
+    <div class="emoji-picker-container">
+      <textarea rows="3" data-emojiable="true"></textarea>
+    </div>
+
+    <p>Textarea with emoji Unicode input</p>
+    <div class="emoji-picker-container">
+      <textarea rows="3" data-emojiable="true" data-emoji-input="unicode"></textarea>
+    </div>
+
     <p>
-      <a class="btn btn-secondary" href="https://github.com/one-signal/emoji-picker" target="_blank">
-        View on GitHub <i class="fa fa-lg fa-github"></i>
+      <a href="https://github.com/one-signal/emoji-picker" target="_blank">
+        View on GitHub
       </a>
     </p>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-10">
-          <div class="text-left">
-            <div class="emoji-picker-container">
-              <input type="text" placeholder="Input field" data-emojiable="true">
-            </div>
-            <div class="emoji-picker-container">
-              <textarea rows="3" placeholder="Textarea with emoji image input" data-emojiable="true"></textarea>
-            </div>
-            <div class="emoji-picker-container">
-              <textarea rows="3" placeholder="Textarea with emoji Unicode input" data-emojiable="true" data-emoji-input="unicode"></textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
