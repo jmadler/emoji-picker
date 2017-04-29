@@ -1,6 +1,6 @@
-# Emoji Picker
+# :sunglasses: Emoji Picker
 
-:heart_eyes: :stuck_out_tongue_winking_eye: :joy: :stuck_out_tongue: Instantly add Emoji support to input fields on your website! :boom: :sparkles: :thumbsup: :metal:
+Instantly add Emoji support to input fields on your website! :thumbsup:
 
 ![Example Screenshot](http://onesignal.github.io/emoji-picker/screenshot.png)
 
@@ -12,26 +12,59 @@
 
 *On CDN & Multiple Files*: Currently, the number of JavaScript files you have to include is not ideal (6 files). The files will eventually be concatenated and minified, but it might be a bit until this happens. When that's complete, it'll be added to CDNJs as well.
 
-1. In your `<head>` section, add the following *stylesheet* links. Adjust the `lib/css` path to match yours.
+- In your `<head>` section, add the following *stylesheet* links. Adjust the `lib/css` path to match yours.
 
   ```
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="lib/css/emoji.css" rel="stylesheet">
+  <link href="lib/css/emoji.css" rel="stylesheet">
   ```
 
-2. Before the end of your `<body>` section, add the following *JavaScript* links. This library depends on jQuery, so jQuery must also be included, before these scripts are run. Once again, adjust the `lib/css` path to match yours.
+- Before the end of your `<body>` section, add the following *JavaScript* links. This library depends on jQuery, so jQuery must also be included, before these scripts are run. Once again, adjust the `lib/css` path to match yours.
 
   ```
-    <!-- ** Don't forget to Add jQuery here ** -->
-    <script src="lib/js/config.js"></script>
-    <script src="lib/js/util.js"></script>
-    <script src="lib/js/jquery.emojiarea.js"></script>
-    <script src="lib/js/emoji-picker.js"></script>
+  <!-- ** Don't forget to Add jQuery here ** -->
+  <script src="lib/js/config.js"></script>
+  <script src="lib/js/util.js"></script>
+  <script src="lib/js/jquery.emojiarea.js"></script>
+  <script src="lib/js/emoji-picker.js"></script>
+  <script>
+    $(function() {
+      // Initializes and creates emoji set from sprite sheet
+      window.emojiPicker = new EmojiPicker({
+        emojiable_selector: '[data-emojiable=true]',
+        assetsPath: '../lib/img/'
+      });
+      // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+      // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+      // It can be called as many times as necessary; previously converted input fields will not be converted again
+      window.emojiPicker.discover();
+    });
+  </script>
   ```
+  EmojiPicker options
 
-3. On any input field, add the data attribute `data-emojiable="true"`.
+| Option | Type | Default | Description |
+| ------ | ---- | ------- | ----------- |
+| emojiable_selector | string | `'[data-emojiable=true]'` | selector for `<input>` |
+| assetsPath | string | '' | path to emoji spritesheets |
+| popupButtonClasses | string | '' | classes to be appended to the icon in the rendered input|
 
-4. That's all you need for the default options. Play around with the demo to see what the default options give you.
+- Usage:
+  ```
+  <!-- Input field -->
+  <div class="emoji-picker-container">
+    <input data-emojiable="true">
+  </div>
+
+  <!-- Textarea with emoji image input -->
+  <div class="emoji-picker-container">
+    <textarea data-emojiable="true"></textarea>
+  </div>
+
+  <!-- Textarea with emoji Unicode input -->
+  <div class="emoji-picker-container">
+    <textarea data-emojiable="true" data-emoji-input="unicode"></textarea>
+  </div>
+  ```
 
 # Configuring Options
 
@@ -62,7 +95,7 @@ They are!
   - To get the value of the contenteditable div, call `element.val()` on the underlying hidden input field. The `<img>` emojis will be converted into Unicode emojis (plain text)
 
 ### Credits:
-This is a slightly modified version of [angular-emoji-popup](https://github.com/Coraza/angular-emoji-popup), which was written based on [jquery-emojiarea](https://github.com/diy/jquery-emojiarea) (converts input fields to rich emoji input areas) and uses [nanoScrollerJs](https://github.com/jamesflorentino/nanoScrollerJS) (for the popup's custom-skinned scrollbar). This version removes AngularJS as a dependency.
+This is a slightly modified version of [angular-emoji-popup](https://github.com/Coraza/angular-emoji-popup), which was written based on [jquery-emojiarea](https://github.com/diy/jquery-emojiarea) (converts input fields to rich emoji input areas). This version removes AngularJS as a dependency.
 
 ### Improvements from the original forks:
   - The top-right smiley face that allows you to bring up the emoji picker menu
