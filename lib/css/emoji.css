@@ -65,11 +65,11 @@ img.emoji
 
 .emoji-picker-icon
 {
-  font-size: 20px;
+  font-size: 25px;
 
   position: absolute;
   z-index: 100;
-  top: 5px;
+  top: -5px;
   right: 10px;
 
   cursor: pointer;
@@ -93,6 +93,11 @@ img.emoji
 .emoji-picker-icon:hover
 {
   opacity: 1;
+}
+
+.emoji-picker-icon:before
+{
+  content: "☺";
 }
 
 /* Emoji area */

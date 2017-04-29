@@ -10,11 +10,16 @@
     <title>emoji-picker Demo</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <!-- Begin emoji-picker Stylesheets -->
     <link href="../lib/css/emoji.css" rel="stylesheet">
     <!-- End emoji-picker Stylesheets -->
+
+    <style>
+      .emoji-picker-container {
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
 
   <body class="text-center">
@@ -28,15 +33,15 @@
       <div class="row justify-content-center">
         <div class="col-10">
           <div class="text-left">
-            <p class="lead emoji-picker-container">
-              <input type="email" class="form-control" placeholder="Input field" data-emojiable="true">
-            </p>
-            <p class="lead emoji-picker-container">
-              <textarea class="form-control textarea-control" rows="3" placeholder="Textarea with emoji image input" data-emojiable="true"></textarea>
-            </p>
-            <p class="lead emoji-picker-container">
-              <textarea class="form-control textarea-control" rows="3" placeholder="Textarea with emoji Unicode input" data-emojiable="true" data-emoji-input="unicode"></textarea>
-            </p>
+            <div class="emoji-picker-container">
+              <input type="text" placeholder="Input field" data-emojiable="true">
+            </div>
+            <div class="emoji-picker-container">
+              <textarea rows="3" placeholder="Textarea with emoji image input" data-emojiable="true"></textarea>
+            </div>
+            <div class="emoji-picker-container">
+              <textarea rows="3" placeholder="Textarea with emoji Unicode input" data-emojiable="true" data-emoji-input="unicode"></textarea>
+            </div>
           </div>
         </div>
       </div>
@@ -57,7 +62,6 @@
         window.emojiPicker = new EmojiPicker({
           emojiable_selector: '[data-emojiable=true]',
           assetsPath: '../lib/img/',
-          popupButtonClasses: 'fa fa-smile-o'
         });
         // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
         // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
