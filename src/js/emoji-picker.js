@@ -179,10 +179,6 @@ import ConfigStorage from "./ConfigStorage"
         .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   };
 
-  /*
-   * ! MODIFICATION START This function was added by Igor Zhukov to save
-   * recent used emojis.
-   */
   util.emojiInserted = function(emojiKey, menu) {
     ConfigStorage.get('emojis_recent', function(curEmojis) {
       curEmojis = curEmojis || defaultRecentEmojis || [];
@@ -238,10 +234,6 @@ import ConfigStorage from "./ConfigStorage"
     this.$dontHideOnClick = 'emoji-picker';
   };
 
-  /*
-   * ! MODIFICATION START This function was modified by Andre Staltz so that
-   * the icon is created from a spritesheet.
-   */
   EmojiArea.createIcon = function(emoji, menu) {
     var category = emoji[0];
     var row = emoji[1];
@@ -292,10 +284,6 @@ import ConfigStorage from "./ConfigStorage"
     if (!$.emojiarea.icons.hasOwnProperty(emoji))
       return;
     util.insertAtCursor(emoji, this.$textarea[0]);
-    /*
-     * MODIFICATION: Following line was added by Igor Zhukov, in order to
-     * save recent emojis
-     */
     util.emojiInserted(emoji, this.menu);
     this.$textarea.trigger('change');
   };
@@ -346,10 +334,7 @@ import ConfigStorage from "./ConfigStorage"
       'contenteditable': 'true',
     });
 
-    /*
-     * ! MODIFICATION START Following code was modified by Igor Zhukov, in
-     * order to improve rich text paste
-     */
+
     var changeEvents = 'blur change';
     if (!this.options.norealTime) {
       changeEvents += ' keyup';
@@ -403,10 +388,6 @@ import ConfigStorage from "./ConfigStorage"
     $textarea.hide().after(this.$editor);
     this.setup();
 
-    /*
-     * MODIFICATION: Following line was modified by Igor Zhukov, in order to
-     * improve emoji insert behaviour
-     */
     $(document.body).on('mousedown', function() {
       if (self.hasFocus) {
         self.selection = util.saveSelection();
@@ -436,10 +417,6 @@ import ConfigStorage from "./ConfigStorage"
 
   EmojiArea_WYSIWYG.prototype.insert = function(emoji) {
     var content;
-    /*
-     * MODIFICATION: Following line was modified by Andre Staltz, to use new
-     * implementation of createIcon function.
-     */
     var insertionContent = '';
     if (this.options.inputMethod == 'unicode') {
       insertionContent = this.emojiPopup.colonToUnicode(emoji);
@@ -462,10 +439,6 @@ import ConfigStorage from "./ConfigStorage"
     } catch (e) {
     }
 
-    /*
-     * MODIFICATION: Following line was added by Igor Zhukov, in order to
-     * save recent emojis
-     */
     util.emojiInserted(emoji, this.menu);
 
     this.onChange();
@@ -586,19 +559,11 @@ import ConfigStorage from "./ConfigStorage"
       }
     });
 
-    /*
-     * ! MODIFICATION: Following 3 lines were added by Igor Zhukov, in order
-     * to hide menu on message submit with keyboard
-     */
     $body.on('message_send', function(e) {
       self.hide();
     });
 
     $body.on('mouseup', function(e) {
-      /*
-       * ! MODIFICATION START Following code was added by Igor Zhukov, in
-       * order to prevent close on click on EmojiMenu scrollbar
-       */
       e = e.originalEvent || e;
       var target = e.originalTarget || e.target || window;
 
@@ -646,10 +611,6 @@ import ConfigStorage from "./ConfigStorage"
     this.selectCategory(0);
   };
 
-  /*
-   * ! MODIFICATION START Following code was added by Andre Staltz, to
-   * implement category selection.
-   */
   EmojiMenu.prototype.getTabIndex = function(tab) {
     return this.$categoryTabs.find('.emoji-menu-tab').index(tab);
   };
@@ -676,12 +637,6 @@ import ConfigStorage from "./ConfigStorage"
     this.emojiarea.insert(emoji);
   };
 
-  /*
-   * MODIFICATION: The following function argument was modified by Andre
-   * Staltz, in order to load only icons from a category. Also function was
-   * modified by Igor Zhukov in order to display recent emojis from
-   * localStorage
-   */
   EmojiMenu.prototype.load = function(category) {
     var html = [];
     var options = $.emojiarea.icons;
@@ -691,21 +646,12 @@ import ConfigStorage from "./ConfigStorage"
       path += '/';
     }
 
-    /*
-     * ! MODIFICATION: Following function was added by Igor Zhukov, in order
-     * to add scrollbars to EmojiMenu
-     */
     var updateItems = function() {
       self.$items.html(html.join(''));
     }
 
     if (category > 0) {
       for ( var key in options) {
-        /*
-         * MODIFICATION: The following 2 lines were modified by Andre
-         * Staltz, in order to load only icons from the specified
-         * category.
-         */
         if (options.hasOwnProperty(key)
             && options[key][0] === (category - 1)) {
           html.push('<a href="javascript:void(0)" title="'
@@ -741,18 +687,10 @@ import ConfigStorage from "./ConfigStorage"
   };
 
   EmojiMenu.prototype.show = function(emojiarea) {
-    /*
-     * MODIFICATION: Following line was modified by Igor Zhukov, in order to
-     * improve EmojiMenu behaviour
-     */
     if (this.visible)
       return this.hide();
     $(this.$menu).css('z-index', ++EmojiMenu.menuZIndex);
     this.$menu.show("fast");
-    /*
-     * MODIFICATION: Following 3 lines were added by Igor Zhukov, in order
-     * to update EmojiMenu contents
-     */
     if (!this.currentCategory) {
       this.load(0);
     }
