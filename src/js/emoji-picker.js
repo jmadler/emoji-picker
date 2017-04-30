@@ -1,3 +1,6 @@
+import Config from "./Config"
+import {getGuid} from "./util"
+import ConfigStorage from "./ConfigStorage"
 /**
  * emojiarea - A rich textarea control that supports emojis, WYSIWYG-style.
  * Copyright (c) 2012 DIY Co
@@ -766,3 +769,133 @@
   };
 
 })(jQuery, window, document);
+
+export default class EmojiPicker {
+  // Options:
+  //    spriteSheetPath: Path to each category's sprite sheet. Use '!' as a placeholder for the number (see default).
+  //    iconSize: The size of each Emoji icon in the picker.
+  //    textareaId: The ID to select the textarea that will be converted to a WYSIWYG.
+  //    popupElementId: The ID of the element that, when clicked, will display the popup menu.
+  constructor(options) {
+    if (options == null) { options = {}; }
+    $.emojiarea.iconSize = options.iconSize != null ? options.iconSize : 25;
+    $.emojiarea.assetsPath = options.assetsPath != null ? options.assetsPath : '';
+    this.generateEmojiIconSets(options);
+    if (!options.emojiable_selector) { options.emojiable_selector = '[data-emojiable=true]'; }
+    this.options = options;
+  }
+
+  discover() {
+    let isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (isiOS) {
+      return;
+    }
+    // Convert every emojiable field to an emoji area
+    return $(this.options.emojiable_selector).emojiarea($.extend({
+        emojiPopup: this,
+        norealTime: true,
+      }, this.options));
+  }
+
+
+  generateEmojiIconSets(options) {
+    let icons = {};
+    let reverseIcons = {};
+    let i = undefined;
+    let j = undefined;
+    let hex = undefined;
+    let name = undefined;
+    let dataItem = undefined;
+    let row = undefined;
+    let column = undefined;
+    let totalColumns = undefined;
+    j = 0;
+    while (j < Config.EmojiCategories.length) {
+      totalColumns = Config.EmojiCategorySpritesheetDimens[j][1];
+      i = 0;
+      while (i < Config.EmojiCategories[j].length) {
+        dataItem = Config.Emoji[Config.EmojiCategories[j][i]];
+        name = dataItem[1][0];
+        row = Math.floor(i / totalColumns);
+        column = i % totalColumns;
+        icons[`:${name}:`] = [j, row, column, `:${name}:`];
+        reverseIcons[name] = dataItem[0];
+        i++;
+      }
+      j++;
+    }
+
+    $.emojiarea.icons = icons;
+    return $.emojiarea.reverseIcons = reverseIcons;
+  }
+
+  colonToUnicode(input) {
+    if (!input) {
+      return '';
+    }
+    if (!Config.rx_colons) {
+      Config.init_unified();
+    }
+    return input.replace(Config.rx_colons, function(m) {
+      let val = Config.mapcolon[m];
+      if (val) {
+        return val;
+      } else {
+        return '';
+      }
+    });
+  }
+
+  appendUnicodeAsImageToElement(element, input) {
+    let val;
+    if (!input) {
+      return '';
+    }
+    if (!Config.rx_codes) {
+      Config.init_unified();
+    }
+
+    let split_on_unicode = input.split(Config.rx_codes);
+    for (let text of Array.from(split_on_unicode)) {
+      val = '';
+      if (Config.rx_codes.test(text)) {
+        val = Config.reversemap[text];
+        if (val) {
+          val = `:${val}:`;
+          val = $.emojiarea.createIcon($.emojiarea.icons[val]);
+        }
+      } else {
+        val = document.createTextNode(text);
+      }
+      element.append(val);
+    }
+
+    return input.replace(Config.rx_codes, function(m) {
+      val = Config.reversemap[m];
+      if (val) {
+        val = `:${val}:`;
+        let $img = $.emojiarea.createIcon($.emojiarea.icons[val]);
+        return $img;
+      } else {
+        return '';
+      }
+    });
+  }
+
+  colonToImage(input) {
+    if (!input) {
+      return '';
+    }
+    if (!Config.rx_colons) {
+      Config.init_unified();
+    }
+    return input.replace(Config.rx_colons, function(m) {
+      if (m) {
+        let $img = $.emojiarea.createIcon($.emojiarea.icons[m]);
+        return $img;
+      } else {
+        return '';
+      }
+    });
+  }
+};

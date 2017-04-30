@@ -1,4 +1,3 @@
-'use strict';
 var Config = {};
 Config.Emoji = {
     "00a9": ["\u00A9", ["copyright"]],
@@ -3540,3 +3539,4 @@ function buildMap()
     }
 }
 
+export default Config;
