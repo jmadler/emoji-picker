@@ -51,19 +51,13 @@ Instantly add Emoji support to input fields on your website! :thumbsup:
 - Usage:
   ```
   <!-- Input field -->
-  <div class="emoji-picker-container">
-    <input data-emojiable="true">
-  </div>
+  <input data-emojiable="true">
 
   <!-- Textarea with emoji image input -->
-  <div class="emoji-picker-container">
-    <textarea data-emojiable="true"></textarea>
-  </div>
+  <textarea data-emojiable="true"></textarea>
 
   <!-- Textarea with emoji Unicode input -->
-  <div class="emoji-picker-container">
-    <textarea data-emojiable="true" data-emoji-input="unicode"></textarea>
-  </div>
+  <textarea data-emojiable="true" data-emoji-input="unicode"></textarea>
   ```
 
 # Configuring Options
