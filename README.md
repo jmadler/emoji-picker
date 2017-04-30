@@ -22,14 +22,11 @@ Instantly add Emoji support to input fields on your website! :thumbsup:
 
   ```
   <!-- ** Don't forget to Add jQuery here ** -->
-  <script src="lib/js/config.js"></script>
-  <script src="lib/js/util.js"></script>
-  <script src="lib/js/jquery.emojiarea.js"></script>
-  <script src="lib/js/emoji-picker.js"></script>
+  <script src="lib/js/emoji-picker.min.js"></script>
   <script>
     $(function() {
       // Initializes and creates emoji set from sprite sheet
-      window.emojiPicker = new EmojiPicker({
+      window.emojiPicker = new EmojiPicker.EmojiPicker({
         emojiable_selector: '[data-emojiable=true]',
         assetsPath: '../lib/img/'
       });

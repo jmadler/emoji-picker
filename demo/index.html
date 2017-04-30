@@ -35,13 +35,13 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
     <!-- Begin emoji-picker JavaScript -->
-    <script src="../lib/js/emoji-picker.js"></script>
+    <script src="../lib/js/emoji-picker.min.js"></script>
     <!-- End emoji-picker JavaScript -->
 
     <script>
       $(function() {
         // Initializes and creates emoji set from sprite sheet
-        var emojiPicker = new EmojiPicker.EmojiPicker({
+        emojiPicker = new EmojiPicker.EmojiPicker({
           emojiable_selector: '[data-emojiable=true]',
           assetsPath: '../lib/img/',
         });
