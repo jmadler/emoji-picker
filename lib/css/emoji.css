@@ -66,28 +66,28 @@ img.emoji
 .emoji-picker-icon
 {
   font-size: 25px;
+  line-height: 27px;
 
   position: absolute;
   z-index: 100;
-  top: -5px;
-  right: 10px;
+  top: 0;
+  right: 0;
 
   cursor: pointer;
   -webkit-user-select: none;
+  -ms-user-select: none;
   -moz-user-select: none;
-  user-select: none;
-  transition: none;
-
-  opacity: .7;
-  color: black;
-
   -khtml-user-select: none;
   -o-user-select: none;
+  user-select: none;
+
+  opacity: .7;
+  color: #000;
 }
 
 .emoji-picker-icon.parent-has-scroll
 {
-  right: 28px;
+  right: 5px;
 }
 
 .emoji-picker-icon:hover
@@ -126,7 +126,7 @@ img.emoji
 
   word-wrap: break-word;
 
-  border: 1px solid #d2dbe3
+  border: 1px solid #d2dbe3;
 }
 
 .emoji-wysiwyg-editor.parent-has-scroll
