@@ -17,10 +17,6 @@ import ConfigStorage from "./ConfigStorage"
  * @author Brian Reavis <brian@diy.org>
  */
 
-/**
- * This file also contains some modifications by Igor Zhukov in order to add
- * custom scrollbars to EmojiMenu See keyword `MODIFICATION` in source code.
- */
 (function($, window, document) {
 
   var ELEMENT_NODE = 1;
@@ -35,10 +31,6 @@ import ConfigStorage from "./ConfigStorage"
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  /*
-   * ! MODIFICATION START Options 'spritesheetPath', 'spritesheetDimens',
-   * 'iconSize' added by Andre Staltz.
-   */
   $.emojiarea = {
     assetsPath : '',
     iconSize : 25,
@@ -46,7 +38,6 @@ import ConfigStorage from "./ConfigStorage"
   };
   var defaultRecentEmojis = ':joy:,:kissing_heart:,:heart:,:heart_eyes:,:blush:,:grin:,:+1:,:relaxed:,:pensive:,:smile:,:sob:,:kiss:,:unamused:,:flushed:,:stuck_out_tongue_winking_eye:,:see_no_evil:,:wink:,:smiley:,:cry:,:stuck_out_tongue_closed_eyes:,:scream:,:rage:,:smirk:,:disappointed:,:sweat_smile:,:kissing_closed_eyes:,:speak_no_evil:,:relieved:,:grinning:,:yum:,:laughing:,:ok_hand:,:neutral_face:,:confused:'
       .split(',');
-  /* ! MODIFICATION END */
 
   $.fn.emojiarea = function(options) {
     options = $.extend({}, options);
@@ -213,7 +204,7 @@ import ConfigStorage from "./ConfigStorage"
       });
     })
   };
-  /* ! MODIFICATION END */
+
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   var EmojiArea = function() {
@@ -276,7 +267,7 @@ import ConfigStorage from "./ConfigStorage"
   };
 
   $.emojiarea.createIcon = EmojiArea.createIcon;
-  /* ! MODIFICATION END */
+
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   /**
@@ -366,7 +357,7 @@ import ConfigStorage from "./ConfigStorage"
     this.$editor.on(changeEvents, function(e) {
       return self.onChange.apply(self, [ e ]);
     });
-    /* ! MODIFICATION END */
+
 
     this.$editor.on('mousedown focus', function() {
       document.execCommand('enableObjectResizing', false, false);
@@ -622,7 +613,7 @@ import ConfigStorage from "./ConfigStorage"
           return;
         }
       }
-      /* ! MODIFICATION END */
+
       self.hide();
     });
 
@@ -675,7 +666,7 @@ import ConfigStorage from "./ConfigStorage"
     this.currentCategory = category;
     this.load(category);
   };
-  /* ! MODIFICATION END */
+
 
   EmojiMenu.prototype.onItemSelected = function(emoji) {
     if(this.emojiarea.$editor.text().length + this.emojiarea.$editor.find('img').length >= this.emojiarea.$editor.attr('maxlength'))
