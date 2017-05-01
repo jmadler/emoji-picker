@@ -17,6 +17,9 @@
       "url": "https://github.com/one-signal/emoji-picker/blob/gh-pages/LICENSE"
     }
   ],
+  "scripts" : {
+    "build": "webpack && NODE_ENV=production webpack"
+  },
   "main": "lib/js/emoji-picker.js",
   "engines": {
     "node": "0.10.x"

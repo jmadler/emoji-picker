@@ -1,14 +1,26 @@
-var webpack = require("webpack");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const isProductionBuild = process.env.NODE_ENV === "production";
+
+
+let plugins = [
+  new ExtractTextPlugin("lib/css/emoji.css"),
+];
+
+if (isProductionBuild) {
+  plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true
+    })
+  );
+}
 
 module.exports = {
-  entry: {
-    "emoji-picker": "./src/index",
-    "emoji-picker.min": "./src/index",
-  },
+  entry: "./src/index",
   output: {
     path: __dirname,
-    filename: "lib/js/[name].js",
+    filename: isProductionBuild ? 'lib/js/emoji-picker.min.js' : 'lib/js/emoji-picker.js',
     libraryTarget: 'var',
     library: 'EmojiPicker'
   },
@@ -22,11 +34,5 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.scss']
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      include: /\.min\.js$/,
-      minimize: true
-    }),
-    new ExtractTextPlugin("lib/css/emoji.css")
-  ]
+  plugins: plugins
 };
