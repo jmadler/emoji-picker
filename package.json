@@ -1,7 +1,7 @@
 {
   "name": "onesignal-emoji-picker",
   "title": "Emoji Picker",
-  "version": "1.0.0",
+  "version": "1.1.4",
   "description": "Add a slick emoji selector to input fields and textareas on your website.",
   "author": {
     "name": "Jason Pang @ OneSignal",
