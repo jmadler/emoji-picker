@@ -8,10 +8,6 @@
 
 # Installation & Usage:
 
-*On Robustness*: This library isn't super robust, so if you find any issues, please report it so it can be fixed (or feel free to fix it yourself). Code quality improvements are also welcome, always looking to make it better!
-
-*On CDN & Multiple Files*: Currently, the number of JavaScript files you have to include is not ideal (6 files). The files will eventually be concatenated and minified, but it might be a bit until this happens. When that's complete, it'll be added to CDNJs as well.
-
 1. In your `<head>` section, add the following *stylesheet* links. Adjust the `lib/css` path to match yours.
 
   ```
