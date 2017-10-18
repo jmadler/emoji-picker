@@ -15,30 +15,95 @@
     <!-- Begin emoji-picker Stylesheets -->
     <link href="../lib/css/emoji.css" rel="stylesheet">
     <!-- End emoji-picker Stylesheets -->
+    <style type="text/css">
+      body {
+        background-color: #DEDEDE;
+        font-family: arial;
+        font-size: 13px;
+      }
+      label {
+          display: block;
+          margin-bottom: 5px;
+          color: #333;
+      }
+      .controls {
+        position: relative;
+      }
+      .asterisk {
+          color: #898989;
+      }
+      span {
+          font-weight: 700;
+      }
+
+      .helpText {
+          font-weight: 400;
+          color: #000;
+          opacity: .7;
+      }
+      #subject {
+        width: 800px;
+      }
+
+
+      /* ------------------------------------------ */
+      .emoji-menu .emoji-items-wrap {
+          overflow-y: scroll;
+      }
+      .emoji-wysiwyg-editor {
+          color: gray;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+          background-color: #FFFFFF;
+          height: 36px !important;
+          line-height: 24px;
+          max-height: 284px;
+          outline: 0 none;
+          overflow: hidden;
+      }
+      .emoji-wysiwyg-editor:focus {
+        border: 1px solid #000;
+      }
+      .emoji-wysiwyg-editor.error.error-required {
+          border: 1px solid #E73034;
+      }
+      .emoji-wysiwyg-editor.validate-success {
+          border: 1px solid #8D884A !important;
+      }
+      .emoji-picker-icon {
+          top: 9px;
+      }
+      label.validate-success {
+        color: #8D884A;
+      }
+      form.error-required .error.error-required {
+        color: #B74A4B;
+      }
+    </style>
   </head>
 
   <body class="text-center">
-    <h1>emoji-picker</h1>
-    <p>
-      <a class="btn btn-secondary" href="https://github.com/one-signal/emoji-picker" target="_blank">
-        View on GitHub <i class="fa fa-lg fa-github"></i>
-      </a>
-    </p>
+    <h1 style="margin: 20px 0 120px">emoji-picker</h1>
+
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-10">
           <div class="text-left">
             <p class="lead emoji-picker-container">
-              <input type="email" class="form-control" placeholder="Input field" data-emojiable="true">
-            </p>
-            <p class="lead emoji-picker-container">
-              <input type="email" class="form-control" placeholder="Input with max length of 10" data-emojiable="true" maxlength="10">
-            </p>
-            <p class="lead emoji-picker-container">
-              <textarea class="form-control textarea-control" rows="3" placeholder="Textarea with emoji image input" data-emojiable="true"></textarea>
-            </p>
-            <p class="lead emoji-picker-container">
-              <textarea class="form-control textarea-control" rows="3" placeholder="Textarea with emoji Unicode input" data-emojiable="true" data-emoji-input="unicode"></textarea>
+              <form action="http://example.com/">
+                <div class="control-group offset1 span7">
+                    <label for="subject"><font class="asterisk">*</font> <span>Asunto:</span> <span class="helpText">es la línea de asunto de tu correo electrónico.</span> </label>
+
+                    <div class="controls">
+                        <input
+                          type="text" class="span12" name="subject" id="subject" aria-invalid="false"
+                          placeholder="Asunto" data-emojiable="true" data-multiline="false" data-emoji-input="unicode"
+                          required value="">
+                    </div>
+                </div>
+                <button style="margin: 30px auto">Enviar</button>
+              </form>
             </p>
           </div>
         </div>
@@ -52,31 +117,19 @@
     <script src="../lib/js/util.js"></script>
     <script src="../lib/js/jquery.emojiarea.js"></script>
     <script src="../lib/js/emoji-picker.js"></script>
+    <script src="../lib/js/emoji-picker-helper.js"></script>
     <!-- End emoji-picker JavaScript -->
 
     <script>
       $(function() {
-        // Initializes and creates emoji set from sprite sheet
-        window.emojiPicker = new EmojiPicker({
-          emojiable_selector: '[data-emojiable=true]',
+        var options = {
+          emojiable_selector: '[data-emojiable]',
           assetsPath: '../lib/img/',
           popupButtonClasses: 'fa fa-smile-o'
-        });
-        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-        // It can be called as many times as necessary; previously converted input fields will not be converted again
-        window.emojiPicker.discover();
-      });
-    </script>
-    <script>
-      // Google Analytics
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        };
 
-      ga('create', 'UA-49610253-3', 'auto');
-      ga('send', 'pageview');
+        window.emojiPickerHelper.init(options);
+      });
     </script>
   </body>
 </html>
