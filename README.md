@@ -15,7 +15,7 @@
     <link href="lib/css/emoji.css" rel="stylesheet">
   ```
 
-2. Before the end of your `<body>` section, add the following *JavaScript* links. This library depends on jQuery, so jQuery must also be included, before these scripts are run. Once again, adjust the `lib/css` path to match yours.
+2. Before the end of your `<body>` section, add the following *JavaScript* links. This library depends on jQuery, so jQuery must also be included, before these scripts are run. Once again, adjust the `lib/js` path to match yours.
 
   ```
     <!-- ** Don't forget to Add jQuery here ** -->
