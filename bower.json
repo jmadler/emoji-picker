@@ -1,0 +1,23 @@
+{
+  "name": "onesignal-emoji-picker",
+  "version": "1.1.4",
+  "homepage": "https://github.com/one-signal/emoji-picker",
+  "authors": {
+      "name": "Jason Pang @ OneSignal",
+      "url": "https://onesignal.com"
+  },
+  "description": "Add a slick emoji selector to input fields and textareas on your website.",
+  "main": "lib/js/emoji-picker.js",
+  "keywords": [
+    "emoji",
+    "jquery-emoji",
+    "textarea",
+    "input",
+    "emoticons",
+    "icons",
+    "jquery-plugin"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1 - 3"
+  }
+}
