@@ -1,4 +1,4 @@
-import Config from "./Config"
+import Config from "./config"
 import {getGuid} from "./util"
 import ConfigStorage from "./ConfigStorage"
 /**
