@@ -27,7 +27,28 @@
 
 3. On any input field, add the data attribute `data-emojiable="true"`.
 
-4. That's all you need for the default options. Play around with the demo to see what the default options give you.
+4. Put your input field in a container with `class="emoji-picker-container"` to make sure picker would be displayed upper right corner of the input field.
+
+5. Create a new `EmojiPicker` instance and bind it to your input field.
+
+```
+    <script>
+      $(function() {
+        // Initializes and creates emoji set from sprite sheet
+        window.emojiPicker = new EmojiPicker({
+          emojiable_selector: '[data-emojiable=true]',
+          assetsPath: '../lib/img/',
+          popupButtonClasses: 'fa fa-smile-o' // far fa-smile if you're using FontAwesome 5
+        });
+        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+        window.emojiPicker.discover();
+      });
+    </script>
+```
+
+6. That's all you need for the default options. Play around with the demo to see what the default options give you.
 
 # Configuring Options
 
