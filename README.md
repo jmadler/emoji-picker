@@ -1,3 +1,9 @@
+# Deprecated - Looking for Maintainers
+
+This project is deprecated and looking for new maintainers.  The source code will be removed from OneSignal systems as we move away from jQuery.  
+
+If there are members of the community who are interested in adopting this project for ongoing maintenance, please contact devrel -AT- onesignal -DOT- com
+
 # Emoji Picker
 
 :heart_eyes: :stuck_out_tongue_winking_eye: :joy: :stuck_out_tongue: Instantly add Emoji support to input fields on your website! :boom: :sparkles: :thumbsup: :metal:
