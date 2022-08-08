@@ -6,7 +6,7 @@
 
 ![Example Screenshot](https://raw.githubusercontent.com/jmadler/emoji-picker/main/screenshot.png)
 
-**Demo:** http://onesignal.github.io/emoji-picker/demo
+**Demo:** https://js-emoji-picker.arifdev.com/
 
 # Installation & Usage:
 
@@ -21,10 +21,10 @@
 
   ```
     <!-- ** Don't forget to Add jQuery here ** -->
-    <script src="lib/js/config.js"></script>
-    <script src="lib/js/util.js"></script>
-    <script src="lib/js/jquery.emojiarea.js"></script>
-    <script src="lib/js/emoji-picker.js"></script>
+    <script src="lib/js/config.min.js"></script>
+    <script src="lib/js/util.min.js"></script>
+    <script src="lib/js/jquery.emojiarea.min.js"></script>
+    <script src="lib/js/emoji-picker.min.js"></script>
   ```
 
 3. On any input field, add the data attribute `data-emojiable="true"`.
@@ -39,7 +39,7 @@
         // Initializes and creates emoji set from sprite sheet
         window.emojiPicker = new EmojiPicker({
           emojiable_selector: '[data-emojiable=true]',
-          assetsPath: '../lib/img/',
+          assetsPath: '/lib/img/',
           popupButtonClasses: 'fa fa-smile-o' // far fa-smile if you're using FontAwesome 5
         });
         // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
