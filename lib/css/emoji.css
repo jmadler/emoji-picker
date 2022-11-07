@@ -53,6 +53,7 @@ img.emoji {
 }
 
 .emoji-picker-icon {
+    cursor: pointer;
     position: absolute;
     right: 10px;
     top: 5px;
@@ -124,6 +125,7 @@ img.emoji {
 
 .emoji-menu {
     position: absolute;
+    right: 0;
     z-index: 999;
     width: 225px;
     overflow: hidden;
@@ -210,6 +212,7 @@ img.emoji {
 .emoji-menu .emoji-items-wrap {
     position: relative;
     height: 174px;
+    overflow: scroll;
 }
 
 .emoji-menu .emoji-items {
