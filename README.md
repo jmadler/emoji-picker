@@ -6,8 +6,6 @@
 
 ![Example Screenshot](https://raw.githubusercontent.com/jmadler/emoji-picker/main/screenshot.png)
 
-**Demo:** https://js-emoji-picker.arifdev.com/
-
 # Installation & Usage:
 
 1. In your `<head>` section, add the following *stylesheet* links. Adjust the `lib/css` path to match yours.
